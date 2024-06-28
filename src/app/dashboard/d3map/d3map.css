@@ -1,0 +1,20 @@
+.node-text {
+    width: 180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    position: relative;
+    color: black;
+}
+
+/* .node-text:hover {
+    white-space: normal;
+    overflow: visible;
+    background-color: rgb(245, 233, 195);
+    z-index: 10;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    z-index: 1000;
+} */
