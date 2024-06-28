@@ -11,12 +11,10 @@ import { Flip } from "gsap/dist/Flip";
 import { useRouter, useSearchParams } from "next/navigation";
 
 export default function Authentication() {
-
     const searchParams = useSearchParams();
     const step = searchParams.get('step') || 'login'
     const [isRegister, setIsRegister] = useState(step === 'register')
     const [isHovered, setIsHovered] = useState(false)
-
 
     const container = useRef<HTMLDivElement>(null)
 
@@ -30,7 +28,6 @@ export default function Authentication() {
 
     const flipFunction = () => {
         if (container.current) {
-
             const state = Flip.getState(container.current.children);
             (container.current.children[1] as HTMLDivElement).classList.toggle('order-1');
             (container.current.children[0] as HTMLDivElement).classList.toggle('order-2');
@@ -49,9 +46,8 @@ export default function Authentication() {
     };
 
     return (
-            <div className={`flex justify-between items-center w-full overflow-hidden h-full max-h-full transition-all`}
-                ref={container}>
-
+        <Suspense fallback={<div>Loading...</div>}>
+            <div className={`flex justify-between items-center w-full overflow-hidden h-full max-h-full transition-all`} ref={container}>
                 <motion.div
                     initial="initial"
                     animate="animate"
@@ -117,5 +113,6 @@ export default function Authentication() {
                 </div>
             </motion.div> */}
             </div>
+        </Suspense>
     );
 }
